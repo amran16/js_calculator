@@ -4,16 +4,13 @@ $(document).ready(function() {
   updateScreen(0);
 
   $('.button').on('click', function(evt) {
+    
     var buttonPressed = $(this).html();
-     //console.log(buttonPressed);
-     //console.log(typeof(buttonPressed));
-
+     
     if (buttonPressed === "C") {
       result = '';
     } else if (buttonPressed === '.') {
       result += '.';
-    } else if (buttonPressed === '.' && buttonPressed === '.' ) {
-      result = 'error';
     } else if (buttonPressed === '0') {
       result += '0';
     } else if (Number(buttonPressed)) {
@@ -36,56 +33,45 @@ $(document).ready(function() {
        result = Math.pow(result, 2)
     } else if(buttonPressed === '%') {
        result =  result/100;
-    } else if(buttonPressed === '∏') {
+    } else if(buttonPressed === 'π') {
        result =  Math.PI;
     }else if (buttonPressed === '→') {
-      result = result.slice(0,-1);
+      result = result.slice(0, -1);
     } else if (buttonPressed === '=') {
-        result = eval(result);
-        //result = evaluate(result);
+      result = ouputResult(result);
     }
     updateScreen(result);
   });
 });
 
-
-// function updateScreen(displayLimit) {
-//
-//  displayLimit = document.getElementById('result').value;
-//
-//   try {
-//     if(displayLimit.length > 20) throw ('Your input is too long!');
-//   } catch (err) {
-//      $('#result').html("Error!!!");
-//   } finally {
-//      $('#result').html(displayLimit);
-//   }
-// }
-
  function updateScreen(displayLimit) {
-   //console.log(displayLimit); //result is undefined in here
-   console.log(typeof(displayLimit));
-
+  
    if(displayLimit.length > 20){
      $('#result').html('Your input is too long!');
-   } else{
+   }else{
        $('#result').html(displayLimit);
+   }
+
+   if(displayLimit === 'Error!'){
+       clear();
    }
 }
 
-// function evaluate(input) {
-//
-// 		try {
-// 			var finalResult = eval(input);
-//       console.log(typeof(finalResult));
-//       $('#result').html(finalResult);
-// 		}
-//
-// 		catch(e) {
-// 			// catches user input errrors, such as 5 * + - / 10
-// 			// console.log("There was an error");
-//        $('#result').html("Error!!!");
-//
-// 		}
-//
-// 	};
+function ouputResult(input) {
+    try {
+       return eval(input);
+    }
+    catch(e) {
+       return "Error!";
+    }
+}
+
+function clear(){
+    setTimeout(function(){
+      document.getElementById("result").innerHTML = "";
+     }, 1000);
+  }
+
+
+
+
