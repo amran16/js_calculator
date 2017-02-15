@@ -4,9 +4,9 @@ $(document).ready(function() {
   updateScreen(0);
 
   $('.button').on('click', function(evt) {
-    
+
     var buttonPressed = $(this).html();
-     
+
     if (buttonPressed === "C") {
       result = '';
     } else if (buttonPressed === '.') {
@@ -45,9 +45,10 @@ $(document).ready(function() {
 });
 
  function updateScreen(displayLimit) {
-  
+
    if(displayLimit.length > 20){
      $('#result').html('Your input is too long!');
+     clear();
    }else{
        $('#result').html(displayLimit);
    }
@@ -61,7 +62,7 @@ function ouputResult(input) {
     try {
        return eval(input);
     }
-    catch(e) {
+    catch(err) {
        return "Error!";
     }
 }
@@ -69,9 +70,5 @@ function ouputResult(input) {
 function clear(){
     setTimeout(function(){
       document.getElementById("result").innerHTML = "";
-     }, 1000);
+    }, 2000);
   }
-
-
-
-
