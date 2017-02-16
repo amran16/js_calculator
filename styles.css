@@ -1,6 +1,5 @@
 body {
    background: black;
-
 }
 
 .container {
@@ -37,7 +36,7 @@ button{
 
 #result {
   font-family: Droid Sans Mono;
-  width: 92%;
+  width: 97%;
   margin: auto;
   background-color:  #3E4651;
   text-align: right;
