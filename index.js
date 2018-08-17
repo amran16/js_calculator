@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     var buttonPressed = $(this).html();
 
-    if (buttonPressed === "C") {
+    if (buttonPressed === 'C') {
       result = '';
     } else if (buttonPressed === '.') {
       result += '.';
@@ -23,7 +23,7 @@ $(document).ready(function() {
       result += '*';
     } else if(buttonPressed === '/'){
       result += '/';
-    } else if (buttonPressed === "+/-") {
+    } else if (buttonPressed === '+/-') {
       result *= -1;
     } else if(buttonPressed === '1/x') {
       result =  1/result;
@@ -52,7 +52,6 @@ $(document).ready(function() {
    }else{
        $('#result').html(displayLimit);
    }
-
    if(displayLimit === 'Error!'){
        clear();
    }
@@ -63,12 +62,12 @@ function ouputResult(input) {
        return eval(input);
     }
     catch(err) {
-       return "Error!";
+       return 'Error!';
     }
 }
 
 function clear(){
     setTimeout(function(){
-      document.getElementById("result").innerHTML = "";
+      document.getElementById('result').innerHTML = '';
     }, 2000);
   }
